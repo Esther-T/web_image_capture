@@ -1,0 +1,39 @@
+.a{
+padding : 15px;
+text-align: center;
+color: rgb(253,255,0)
+font-size:20px;
+font-color: black;
+}
+
+.webcam{
+margin: 0px auto;
+width: 100%;
+height: 375px;
+border: 10px red solid;
+}
+
+body{
+padding: 15px;
+text-align: center;
+background-color: rgb(255,218,185)
+}
+
+.button{
+padding: 10px;
+text-align: center;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+}
+
+.photo{
+background-color: Khaki;
+padding: 15px;
+}
+
+footer{
+padding : 15px;
+text-align: center;
+background-color : rgb(255,218,185)
+}
