@@ -1,0 +1,65 @@
+<html>
+   <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+<link rel = "stylesheet" type= "text/css" href="style.css">
+<div class = "a">
+    <h1>Welcome to Web Image Capture</h1></br>
+</div>
+
+   <div class = "webcam">
+<body>
+<video id="webcam" autoplay playsinline width="500" height="375"></video>
+<canvas id="canvas" class="d-none"></canvas>
+<script>
+var canvas = document.getElementById('canvas');
+var dataURL = canvas.toDataURL();
+window.open(dataURL);
+</script>
+<script>
+
+const webcamElement = document.getElementById('webcam');
+const canvasElement = document.getElementById('canvas');
+const snapSoundElement = document.getElementById('snapSound');
+const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+<!-- this is for the screen -->
+
+function take(){
+let picture = webcam.snap();
+document.querySelector('#download-photo').href = picture;
+// preload shutter audio clip
+ var shutter = new Audio();
+ shutter.autoplay = true;
+ shutter.src = navigator.userAgent.match(/Firefox/) ? 'shutter.ogg' : 'shutter.mp3';
+ // play sound effect
+ shutter.play();
+return picture
+}
+
+</script>
+<script>
+
+    webcam.start();
+</script>
+</div>
+   <input type="button" value="Take a Picture" onclick="take()">
+<input type="button" value="Stop Webcam" onclick="webcam.stop()">
+</body>
+
+<div class = "photo" width="100%" height ="1000">
+<h4>View your pictures and select which you would like to download</h4>
+    <a href="#" id="download-photo" download="image.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">Download</i></a>
+<!--your carosel to put image-->
+    <input type="button" value="Save me" onclick="take2()">
+    <script>
+        function take2(){
+        pic= take();
+        <img src=pic alt="star" width="16" height="16">
+        return pic;
+        }
+    </script>
+</div>
+
+<footer>
+    Author:pooh bear
+    email: pooh@gmail.com
+</footer>
+</html>
