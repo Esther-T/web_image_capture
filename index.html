@@ -1,8 +1,10 @@
 <html>
    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+   <title>Web Webcam</title>
 <link rel = "stylesheet" type= "text/css" href="style.css">
 <div class = "a">
-    <h1>Welcome to Web Image Capture</h1></br>
+    <h1>Welcome to Web Webcam</h1>
+    <h2>Click <b>Capture</b> to take a pic!</h2>
 </div>
 
    <div class = "webcam">
@@ -40,8 +42,8 @@ return picture
     webcam.start();
 </script>
 </div>
-   <input type="button" value="Take a Picture" onclick="take()">
-<input type="button" value="Stop Webcam" onclick="webcam.stop()">
+   <input type="button" value="Capture" onclick="take()" style="margin-top: 10px;">
+<input type="button" value="Stop Webcam" onclick="webcam.stop()" style="margin-top: 10px; margin-left: 10px;">
 </body>
 
 <div class = "photo" width="100%" height ="1000">
@@ -52,7 +54,6 @@ return picture
     <script>
         function take2(){
         pic= take();
-        <img src=pic alt="star" width="16" height="16">
         return pic;
         }
     </script>
