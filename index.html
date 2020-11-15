@@ -2,22 +2,23 @@
    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-   <title>Web Webcam</title>
+   <title>Online Webcam</title>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <link rel = "stylesheet" type= "text/css" href="style.css">
 <div class = "a">
-    <h1>Welcome to Web Webcam</h1>
+    <h1>Welcome to Online Webcam</h1>
     <h2>Click <b>Capture</b> to take a pic!</h2>
 </div>
 
-   <div class = "webcam">
+<div class = "webcam">
 <body>
-<video id="webcam" autoplay playsinline width="500" height="375"></video>
+<video id="webcam" autoplay playsinline width="500" height="375" style="float: left; margin-left: 170px;"></video>
 <canvas id="canvas" class="d-none"></canvas>
+<div id="images"></div>
 <script>
-var canvas = document.getElementById('canvas');
-var dataURL = canvas.toDataURL();
+  var canvas = document.getElementById('canvas');
+  var dataURL = canvas.toDataURL();
 window.open(dataURL);
 </script>
 <script>
@@ -29,15 +30,16 @@ const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement
 <!-- this is for the screen -->
 
 function take(){
-let picture = webcam.snap();
-document.querySelector('#download-photo').href = picture;
-// preload shutter audio clip
- var shutter = new Audio();
- shutter.autoplay = true;
- shutter.src = navigator.userAgent.match(/Firefox/) ? 'shutter.ogg' : 'shutter.mp3';
- // play sound effect
- shutter.play();
-return picture
+  let picture = webcam.snap();
+  document.querySelector('#download-photo').href = picture;
+  // preload shutter audio clip
+   var shutter = new Audio();
+   shutter.autoplay = true;
+   shutter.src = navigator.userAgent.match(/Firefox/) ? 'shutter.ogg' : 'shutter.mp3';
+   // play sound effect
+  shutter.play();
+  document.getElementById('images').innerHTML = "<img src=\"" + picture + "\">";
+  //return picture;
 }
 
 </script>
@@ -47,14 +49,14 @@ return picture
 </div>
 
 <button type="button" onclick="webcam.start()" style="margin-top: 10px; margin-top: 5px;" class="btn btn-success">Start Webcam</button>
-<button type="button" onclick="take()" style="margin-top: 10px; margin-left: 20px; margin-bottom: 5px;" class="btn btn-warning"><b>Capture<b></button>
+<button type="button" onclick="take()" style="margin-top: 10px; margin-left: 20px; margin-bottom: 5px;" class="btn btn-warning"><b>Capture</b></button>
 <button type="button" onclick="webcam.stop()" style="margin-top: 10px; margin-left: 20px; margin-top: 5px;" class="btn btn-danger">Stop Webcam</button>
 
 <div class = "photo" width="100%" height ="100%">
-<h4>View your pictures and select which you would like to download</h4>
-    <a href="#" id="download-photo" download="image.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">Download</i></a>
-<!--your carosel to put image-->
-    <button type="button" onclick="" class="btn btn-light"><b>Download<b></button>
+  <h4>Click <b>Download</b> to download your image</h4>
+  <a href="#" id="download-photo" download="image.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">Download</i></a>
+  <!--your carosel to put image-->
+  <button type="button" onclick="" class="btn btn-light"><b>Download</b></button>
 </div>
 
 <footer>
