@@ -24,6 +24,6 @@ class HandleRequests(http.server.SimpleHTTPRequestHandler):
 
 
 host = 'localhost'
-port = 80
+port = 6001
+print "serving at port", PORT
 HTTPServer((host, port), HandleRequests).serve_forever()
-
