@@ -9,7 +9,7 @@ font-color: black;
 .webcam{
 margin: 0px auto;
 width: 100%;
-height: 375px;
+height: 396px;
 border: 10px red solid;
 }
 
@@ -35,5 +35,6 @@ padding: 15px;
 footer{
 padding : 15px;
 text-align: center;
-background-color : rgb(255,218,185)
+background-color : rgb(255,218,185);
+margin-bottom: 5px;
 }
